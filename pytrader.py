@@ -49,7 +49,7 @@ class MyWindow(QMainWindow, form_class):
         f.close()
 
         row_count = len(buy_list) + len(sell_list)
-        self.tableWidget_4.setRowCount(row_count)
+        self.tableWidget_3.setRowCount(row_count)
 
         # buy list
         for j in range(len(buy_list)):
@@ -61,7 +61,7 @@ class MyWindow(QMainWindow, form_class):
             for i in range(len(split_row_data)):
                 item = QTableWidgetItem(split_row_data[i].rstrip())
                 item.setTextAlignment(Qt.AlignVCenter | Qt.AlignCenter)
-                self.tableWidget_4.setItem(j, i, item)
+                self.tableWidget_3.setItem(j, i, item)
 
         # sell list
         for j in range(len(sell_list)):
@@ -73,9 +73,9 @@ class MyWindow(QMainWindow, form_class):
             for i in range(len(split_row_data)):
                 item = QTableWidgetItem(split_row_data[i].rstrip())
                 item.setTextAlignment(Qt.AlignVCenter | Qt.AlignCenter)
-                self.tableWidget_4.setItem(len(buy_list) + j, i, item)
+                self.tableWidget_3.setItem(len(buy_list) + j, i, item)
 
-        self.tableWidget_4.resizeRowsToContents()
+        self.tableWidget_3.resizeRowsToContents()
 
         # 여기까지 텍스트 파일 구현부
 

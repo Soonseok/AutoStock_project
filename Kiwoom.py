@@ -173,7 +173,7 @@ class Kiwoom(QAxWidget):
 
         total_earning_rate = Kiwoom.change_format(total_earning_rate)
         if self.get_server_gubun():
-            total_earning_rate = float(total_earning_rate) / 100
+            total_earning_rate = float(total_earning_rate)
             total_earning_rate = str(total_earning_rate)
 
         self.opw00018_output['single'].append(

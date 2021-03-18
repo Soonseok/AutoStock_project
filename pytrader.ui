@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>913</width>
-    <height>620</height>
+    <height>839</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -240,7 +240,7 @@
       <x>230</x>
       <y>10</y>
       <width>641</width>
-      <height>551</height>
+      <height>441</height>
      </rect>
     </property>
     <property name="title">
@@ -250,7 +250,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>30</y>
+       <y>20</y>
        <width>621</width>
        <height>61</height>
       </rect>
@@ -294,9 +294,9 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>110</y>
+       <y>100</y>
        <width>621</width>
-       <height>381</height>
+       <height>291</height>
       </rect>
      </property>
      <column>
@@ -333,21 +333,21 @@
     <widget class="QCheckBox" name="checkBox">
      <property name="geometry">
       <rect>
-       <x>460</x>
-       <y>510</y>
-       <width>81</width>
+       <x>440</x>
+       <y>410</y>
+       <width>101</width>
        <height>21</height>
       </rect>
      </property>
      <property name="text">
-      <string>실시간 조회</string>
+      <string>자동 새로고침</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_2">
      <property name="geometry">
       <rect>
-       <x>560</x>
-       <y>510</y>
+       <x>550</x>
+       <y>410</y>
        <width>75</width>
        <height>23</height>
       </rect>
@@ -355,6 +355,59 @@
      <property name="text">
       <string>조회</string>
      </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>480</y>
+      <width>641</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>자동 선정 종목 리스트</string>
+    </property>
+    <widget class="QTableWidget" name="tableWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>621</width>
+       <height>271</height>
+      </rect>
+     </property>
+     <column>
+      <property name="text">
+       <string>주문유형</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>종목명</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>호가구분</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>수량</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>가격</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>상태</string>
+      </property>
+     </column>
     </widget>
    </widget>
   </widget>

@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5 import uic
 from Kiwoom import *
+from updatedb import *
 
 form_class = uic.loadUiType("pytrader.ui")[0]
 
@@ -14,6 +15,7 @@ class MyWindow(QMainWindow, form_class):
 
         self.kiwoom = Kiwoom()
         self.kiwoom.comm_connect()
+        self.updatedb = updateDb()
 
         self.trade_stocks_done = False
 
@@ -30,6 +32,7 @@ class MyWindow(QMainWindow, form_class):
 
         self.pushButton.clicked.connect(self.send_order)
         self.pushButton_2.clicked.connect(self.check_balance)
+        self.pushButton_3.clicked.connect(self.updatedb.run())
 
         # Timer2_check_realtime
         self.timer2 = QTimer(self)

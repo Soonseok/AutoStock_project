@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 from pandas import Series
 from time import sleep
+import csv
 
 
 def mam_earning_rate(df, Ns, Nl):
@@ -14,14 +15,15 @@ def mam_earning_rate(df, Ns, Nl):
     df.iloc[-1, -1] = 0
 
     # 매수/매도 조건
-    매수조건 = (df['status'] == 1) & (df['status'].shift(1) != 1)
-    매도조건 = (df['status'] == 0) & (df['status'].shift(1) == 1)
+    buy_cond = (df['status'] == 1) & (df['status'].shift(1) != 1)
+    sell_cond = (df['status'] == 0) & (df['status'].shift(1) == 1)
 
     # 수익률 계산
-    수익률 = df.loc[매도조건, '종가'].reset_index(
-        drop=True) / df.loc[매수조건, '종가'].reset_index(drop=True)
-    수익률 = 수익률 - 1.002
-    return 수익률.cumprod().iloc[-1]
+    earining_rate = df.loc[sell_cond, '종가'].reset_index(
+        drop=True) / df.loc[buy_cond, '종가'].reset_index(drop=True)
+    earining_rate = earining_rate - 1.002
+    earining_rate = np.round(earining_rate, decimals=5)
+    return earining_rate.cumprod().iloc[-1]
 
 
 def cal_mam_of_tickers(n):
@@ -40,6 +42,18 @@ def cal_mam_of_tickers(n):
         sleep(1)
     return results
 
+
+def save_to_file(results):
+    file = open("results.csv", mode="w")
+    writer = csv.writer(file)
+    writer.writerow(["숫자코드", "최대수익률", "단기, 장기 이동평균"])
+    for result in results:
+        writer.writerow(list(result))
+    return
+
+
+results = cal_mam_of_tickers(1034)
+save_to_file(results)
 
 '''
 1001 코스피
